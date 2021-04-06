@@ -10,9 +10,9 @@ $(function(){
 
         //define empty array for pkmn info
         pkmnArray = [];
-        $.each(pkmnArray, function(index){
-            console.log(index);
-        });
+        //Array prints out fine in order. 
+        console.log(pkmnArray);
+        // Error happens when I try to access an index. Comes up as Undefined :(
         console.log(pkmnArray[0]);
 
         // Using the Gen1 Data, we loop though each pkmn species
@@ -67,7 +67,7 @@ $(function(){
       }).fail(function(){
         console.log("Request to PokeAPI failed");
       }).always(function(){
-        console.log("Pokemon is the best!")
+        console.log("Request to PokeAPI successful")
       })
 
       
