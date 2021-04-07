@@ -230,7 +230,83 @@ h2 {
 
   .typeBlock{
     color:#fff;
-    background: #AABB22;
+    border: 2px solid rgba(0,0,0,0.2);
+    line-height: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    width: 66px;
+    font-size: .75rem;
+    font-weight: normal;
+    display: inline-block;
+    border-radius: 5px;
+  }
+
+  .Normal {
+    background-color: #aa9;
+  }
+
+  .Flying {
+    background-color: #89F;
+  }
+
+  .Water {
+    background-color: #39F;
+  }
+
+  .Fire {
+    background-color: #F42;
+  }
+
+  .Grass {
+    background-color: #7c5;
+  }
+
+  .Poison {
+    background-color: #a59;
+
+  }
+  .Bug {
+    background-color: #ab2;
+  }
+  
+  .Electric {
+    background-color: #FFCC33;
+  }
+
+  .Fairy {
+    background-color: #e9e;
+  }
+
+  .Ground {
+    background-color: #db5;
+  }
+
+  .Fighting {
+    background-color: #b54;
+  }
+
+  .Psychic {
+    background-color: #f59;
+  }
+
+  .Rock {
+    background-color: #ba6;
+  }
+
+  .Ice {
+    background-color: #6cf ;
+  }
+
+  .Steel {
+    background-color: #aab;
+  }
+
+  .Ghost {
+    background-color: #66b;
+  }
+  
+  .Dragon {
+    background-color: #76e;
   }
 
 /*# sourceMappingURL=style.css.map */
