@@ -69,13 +69,15 @@ $(function() {
              if(value.typeOne === ""){
                 let name = value.name.charAt(0).toUpperCase() + value.name.slice(1);
 
-                let para = $("<p>").html(`#${(value.id)} <br>${name}<br>`);
+                let paraName = $("<p class='paraName'>").html(`${name}`);
+
+                let paraNum =  $("<p class='paraNum'>").html(`#${(value.id)}`);
 
                 let typeTwoDiv = $("<div>").html(`${value.typeTwo}`).addClass(`typeBlock ${value.typeTwo}`);
 
                 let sprite = `<img class="pkmImg" src = ${value.sprite_front}>`;
 
-                let pokemonDiv = $("<div>").addClass("pokemon-containers").attr("id", `${value.id}`).append(sprite).append(para).append(typeTwoDiv);
+                let pokemonDiv = $("<div>").addClass("pokemon-containers").attr("id", `${value.id}`).append(sprite).append(paraNum).append(paraName).append(typeTwoDiv);
 
                 // Attach the paragraph to the page at the pokedex div. 
                 pokemonDiv.appendTo("#pokedex");
@@ -83,14 +85,16 @@ $(function() {
              } else {
                 let name = value.name.charAt(0).toUpperCase() + value.name.slice(1);
 
-                let para = $("<p>").html(`#${(value.id)} <br>${name}<br>`);
+                let paraName = $("<p class='paraName'>").html(`${name}`);
+
+                let paraNum =  $("<p class='paraNum'>").html(`#${(value.id)}`);
 
                 let typeOneDiv = $("<div>").html(`${value.typeOne}`).addClass(`typeBlock ${value.typeOne}`);
                 let typeTwoDiv = $("<div>").html(`${value.typeTwo}`).addClass(`typeBlock ${value.typeTwo}`);
 
                 let sprite = `<img class="pkmImg" src = ${value.sprite_front}>`;
 
-                let pokemonDiv = $("<div>").addClass("pokemon-containers").attr("id", `${value.id}`).append(sprite).append(para).append(typeOneDiv).append(typeTwoDiv);
+                let pokemonDiv = $("<div>").addClass("pokemon-containers").attr("id", `${value.id}`).append(sprite).append(paraNum).append(paraName).append(typeOneDiv).append(typeTwoDiv);
 
                 // Attach the paragraph to the page at the pokedex div. 
                 pokemonDiv.appendTo("#pokedex");
