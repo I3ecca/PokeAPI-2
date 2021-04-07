@@ -25,14 +25,12 @@ $(function() {
 
                     // console.log(info.types[0, 1]);
                     let typeArray = [];
-                    
-                   
+
                     $.each(info.types, function(index, type){
-                        let typeName = type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1);
+                        typeArray.push(type.type.name);
 
-                        typeArray.push(typeName);   
                     })
-
+                    
                     let typeII = typeArray.pop();
                     let typeFirst = typeArray.toString();
                     let typeSecond = typeII.toString();
@@ -49,8 +47,6 @@ $(function() {
                     };
 
                     resolve(pkmn);
-                    
-
                 })
             }));
 
@@ -70,6 +66,21 @@ $(function() {
 
                 
 
+             if(value.typeOne === ""){
+                let name = value.name.charAt(0).toUpperCase() + value.name.slice(1);
+
+                let para = $("<p>").html(`#${(value.id)} <br>${name}<br>`);
+
+                let typeTwoDiv = $("<div>").html(`${value.typeTwo}`).addClass(`typeBlock ${value.typeTwo}`);
+
+                let sprite = `<img class="pkmImg" src = ${value.sprite_front}>`;
+
+                let pokemonDiv = $("<div>").addClass("pokemon-containers").attr("id", `${value.id}`).append(sprite).append(para).append(typeTwoDiv);
+
+                // Attach the paragraph to the page at the pokedex div. 
+                pokemonDiv.appendTo("#pokedex");
+
+             } else {
                 let name = value.name.charAt(0).toUpperCase() + value.name.slice(1);
 
                 let para = $("<p>").html(`#${(value.id)} <br>${name}<br>`);
@@ -83,6 +94,10 @@ $(function() {
 
                 // Attach the paragraph to the page at the pokedex div. 
                 pokemonDiv.appendTo("#pokedex");
+
+             } ; 
+
+                
 
             })
 

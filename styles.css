@@ -239,73 +239,74 @@ h2 {
     font-weight: normal;
     display: inline-block;
     border-radius: 5px;
+    text-shadow: 1px 1px 2px rgb(0 0 0 / 70%);
   }
 
-  .Normal {
+  .normal {
     background-color: #aa9;
   }
 
-  .Flying {
+  .flying {
     background-color: #89F;
   }
 
-  .Water {
+  .water {
     background-color: #39F;
   }
 
-  .Fire {
+  .fire {
     background-color: #F42;
   }
 
-  .Grass {
+  .grass {
     background-color: #7c5;
   }
 
-  .Poison {
+  .poison {
     background-color: #a59;
 
   }
-  .Bug {
+  .bug {
     background-color: #ab2;
   }
   
-  .Electric {
+  .electric {
     background-color: #FFCC33;
   }
 
-  .Fairy {
+  .fairy {
     background-color: #e9e;
   }
 
-  .Ground {
+  .ground {
     background-color: #db5;
   }
 
-  .Fighting {
+  .fighting {
     background-color: #b54;
   }
 
-  .Psychic {
+  .psychic {
     background-color: #f59;
   }
 
-  .Rock {
+  .rock {
     background-color: #ba6;
   }
 
-  .Ice {
+  .ice {
     background-color: #6cf ;
   }
 
-  .Steel {
+  .steel {
     background-color: #aab;
   }
 
-  .Ghost {
+  .ghost {
     background-color: #66b;
   }
   
-  .Dragon {
+  .dragon {
     background-color: #76e;
   }
 
