@@ -23,8 +23,8 @@ $(function() {
                 // second call to API uses info from the first call to get more info on each pokemon. 
                 $.getJSON(pokemonByNameUrl + pokemon.name).done(function(info) {
 
-                    pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-
+                    console.log(info);
+                    
                     // create key value pairs
                     pkmn = {
                         name: pokemon.name,
@@ -52,11 +52,19 @@ $(function() {
 
             $.each(sortedArray, function(index, value) {
 
+                
+
                 let name = value.name.charAt(0).toUpperCase() + value.name.slice(1);
 
-                let para = $("<p>").html(`#${(value.id)} is ${name}`);
+                // let link = $("<a>").attr("id", value.id).attr("href", "#").append("<strong>").text(name);
 
-                let sprite = `<img src = ${value.sprite_front}>`;
+                // let para = $("<p>").html(`#${(value.id)} is `).append(link);
+
+                let para = $("<p>").html(`#${(value.id)} <br>${name} `);
+
+                
+
+                let sprite = `<img class="pkmImg" src = ${value.sprite_front}>`;
 
                 let pokemonDiv = $("<div>").addClass("pokemon-containers").attr("id", `${value.id}`).append(sprite).append(para);
 

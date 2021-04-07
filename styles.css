@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo&display=swap');
+
 .lightbox {
   position: absolute;
   top: 0;
@@ -111,11 +113,13 @@ body {
   overflow: auto;
   width: 80%;
   background-color: #fff;
+  background-image: url("Images/abstractGray.jpg");
   margin: 30px auto 0 auto;
   padding: 20px 30px;
   border-radius: 8px;
   -moz-border-radius: 8px;
-  -webkit-border-radius: 8px; }
+  -webkit-border-radius: 8px;
+  font-family: 'Exo', sans-serif; }
 
 h1 {
   color: #000;
@@ -162,11 +166,58 @@ h2 {
     display: flex;
     flex-direction: row;
     align-items: center;
+    /* background-color: rgba(255, 255, 255, 0.547);
+    width: 500px;
+    align-content: center; */
+    text-decoration: underline;
+   
   }
 
-  .pokemon-container  {
+  .pkmImg{
+    border: 7px solid rgba(127, 127, 127, 0.308);
+    border-radius: 50%;
+    margin-top: 15px;
     
-    
+    background-color: rgba(127, 127, 127, 0.452);
+  }
+
+  
+
+  .pokemon-containers  {
+    background-color: rgba(127, 127, 127, .2);
+    border-radius: 5px;
+    margin: 10px;
+  }
+  .pokemon-containers:hover {
+    cursor: pointer;
+    animation-name: bounce;
+    -moz-animation-name:bounce ;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 60%, 100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  
+    40% {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+  
+    80% {
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px);
+    }
+  }
+
+
+  .pokemon-containers p {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: large;
+    text-decoration: bold;
   }
 
   #pokedex {
@@ -174,6 +225,7 @@ h2 {
     grid-template-columns: auto auto auto;
     padding: 10px;
     text-align: center;
+    
   }
 
 /*# sourceMappingURL=style.css.map */
