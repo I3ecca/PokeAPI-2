@@ -3,6 +3,8 @@ $(function() {
     let pokeApiUrl = "https://pokeapi.co/api/v2/generation/1";
     let pokemonByNameUrl = "https://pokeapi.co/api/v2/pokemon/";
 
+    const popup = document.getElementById("popup-container");
+
 
 
     //first call to the API gets all Gen1 data. 
@@ -23,7 +25,13 @@ $(function() {
                 // second call to API uses info from the first call to get more info on each pokemon. 
                 $.getJSON(pokemonByNameUrl + pokemon.name).done(function(info) {
 
-                    // console.log(info.types[0, 1]);
+                    
+
+                    let upperCaseName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+
+                    let flavorURL = (info.species.url);
+                    // console.log(flavorURL);
+                    // let (info);
                     let typeArray = [];
 
                     $.each(info.types, function(index, type){
@@ -37,12 +45,15 @@ $(function() {
                     
                     // create key value pairs
                     pkmn = {
-                        name: pokemon.name,
+                        name: upperCaseName,
                         id: info.id,
                         sprite_front: info.sprites.front_default,
                         sprite_back: info.sprites.back_default, 
+                        sprite_frontS: info.sprites.front_shiny,
+                        sprite_backS: info.sprites.back_shiny, 
                         typeOne: typeFirst, 
-                        typeTwo: typeSecond
+                        typeTwo: typeSecond, 
+                        flavorUrl : flavorURL
                         
                     };
 
@@ -60,7 +71,7 @@ $(function() {
                 return a.id - b.id;
             });
 
-            console.log(sortedArray);
+            // console.log(sortedArray);
 
             $.each(sortedArray, function(index, value) {
 
@@ -69,7 +80,7 @@ $(function() {
              if(value.typeOne === ""){
                 let name = value.name.charAt(0).toUpperCase() + value.name.slice(1);
 
-                let paraName = $("<p class='paraName'>").html(`${name}`);
+                let paraName = $(`<p class='paraName' id='${value.id}'>`).html(`${name}`);
 
                 let paraNum =  $("<p class='paraNum'>").html(`#${(value.id)}`);
 
@@ -85,7 +96,8 @@ $(function() {
              } else {
                 let name = value.name.charAt(0).toUpperCase() + value.name.slice(1);
 
-                let paraName = $("<p class='paraName'>").html(`${name}`);
+                let paraName = $(`<p class='paraName' id='${value.id}'>`).html(`${name}`);
+
 
                 let paraNum =  $("<p class='paraNum'>").html(`#${(value.id)}`);
 
@@ -101,7 +113,55 @@ $(function() {
 
              } ; 
 
+             
+            })
+
+            
+
+            $(".paraName").click(function(event){
                 
+                popup.style.display = "flex";
+                // gets the id number of the pkmn clicked. 
+                idNum= (event.target.id);
+                
+                let pkmnInfo = (sortedArray[idNum - 1]);
+
+                $.getJSON(pkmnInfo.flavorUrl).done(function(description){
+
+                    let flavorText = JSON.stringify(description.flavor_text_entries[0].flavor_text);
+
+                    let flavor_text = (flavorText.replaceAll("\\n"," ").replaceAll("\\f",""));
+
+                  
+
+                    $("#regularS").html("");
+                    $("#shinyS").html("");
+                    $("#pokemon-details").html("");
+                    $("#flavorText").html(flavor_text);
+
+                    console.log(pkmnInfo);
+
+                    let spriteF = `<img class="pkmSprite" src = ${pkmnInfo.sprite_front}><p>Default Front</p>`;
+                    let spriteB = `<img class="pkmSprite" src = ${pkmnInfo.sprite_back}><p>Default Back</p>`;
+                    let spriteFS = `<img class="pkmSprite" src = ${pkmnInfo.sprite_frontS}><p>Shiny Front</p>`;
+                    let spriteBS = `<img class="pkmSprite" src = ${pkmnInfo.sprite_backS}><p>Shiny Back</p>`;
+
+                    $("#regularS").append(spriteF).append(spriteB);
+                    $("#shinyS").append(spriteFS).append(spriteBS);
+                    
+                });
+
+                console.log("I was clicked!");
+                
+
+                
+                
+
+           
+
+                $(".popup-container").click(function(){
+                    popup.style.display = "none";
+                });
 
             })
 
@@ -113,3 +173,7 @@ $(function() {
         console.log("Pokemon is the best!")
     })
 });
+
+
+
+

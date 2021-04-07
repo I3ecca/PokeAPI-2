@@ -203,4 +203,71 @@ h1 {
     background-color: #76e;
   }
 
+  .popup-container {
+    background-color: rgba(0,0,0,0.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+      /* display: flex; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .popup {
+    background: rgb(177, 177, 177);
+    border-radius: 5px;
+    box-shadow: 0 15px 10px 3px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    width: 50%;
+    height: 70%;
+    background-image: url("Images/abstractGray.jpg");
+    
+  }
+  #flavorText {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgb(0 0 0 / 70%);
+    text-align: center;
+    background-color: rgba(127, 127, 127, .5);
+    border-radius: 5px;
+    width: 50%;
+    height:auto;
+    padding: 10px;
+    margin-left: 25%;
+    
+  }
+
+  #spriteContainer{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgb(0 0 0 / 70%);
+    
+  }
+  
+
+  #regularS{
+    
+    margin:2px;
+    width: 50%;
+    border-radius: 5px;
+    background-color: rgba(127, 127, 127, .5);
+    
+    
+  }
+  #shinyS{
+    
+    margin:2px;
+    width:50%;
+    border-radius: 5px;
+    background-color: rgba(127, 127, 127, .5);
+    
+    
+  }
+
 /*# sourceMappingURL=style.css.map */
