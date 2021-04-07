@@ -23,17 +23,33 @@ $(function() {
                 // second call to API uses info from the first call to get more info on each pokemon. 
                 $.getJSON(pokemonByNameUrl + pokemon.name).done(function(info) {
 
-                    console.log(info);
+                    // console.log(info.types[0, 1]);
+                    let typeArray = [];
+                    
+                   
+                    $.each(info.types, function(index, type){
+                        let typeName = type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1);
+
+                        typeArray.push(typeName);   
+                    })
+
+                    let typeII = typeArray.pop();
+                    let typeFirst = typeArray.toString();
+                    let typeSecond = typeII.toString();
                     
                     // create key value pairs
                     pkmn = {
                         name: pokemon.name,
                         id: info.id,
                         sprite_front: info.sprites.front_default,
-                        sprite_back: info.sprites.back_default
+                        sprite_back: info.sprites.back_default, 
+                        typeOne: typeFirst, 
+                        typeTwo: typeSecond
+                        
                     };
 
                     resolve(pkmn);
+                    
 
                 })
             }));
@@ -56,17 +72,14 @@ $(function() {
 
                 let name = value.name.charAt(0).toUpperCase() + value.name.slice(1);
 
-                // let link = $("<a>").attr("id", value.id).attr("href", "#").append("<strong>").text(name);
+                let para = $("<p>").html(`#${(value.id)} <br>${name}<br>`);
 
-                // let para = $("<p>").html(`#${(value.id)} is `).append(link);
-
-                let para = $("<p>").html(`#${(value.id)} <br>${name} `);
-
-                
+                let typeOneDiv = $("<div>").html(`${value.typeOne}`).addClass(`typeBlock ${value.typeOne}`);
+                let typeTwoDiv = $("<div>").html(`${value.typeTwo}`).addClass(`typeBlock ${value.typeTwo}`);
 
                 let sprite = `<img class="pkmImg" src = ${value.sprite_front}>`;
 
-                let pokemonDiv = $("<div>").addClass("pokemon-containers").attr("id", `${value.id}`).append(sprite).append(para);
+                let pokemonDiv = $("<div>").addClass("pokemon-containers").attr("id", `${value.id}`).append(sprite).append(para).append(typeOneDiv).append(typeTwoDiv);
 
                 // Attach the paragraph to the page at the pokedex div. 
                 pokemonDiv.appendTo("#pokedex");
