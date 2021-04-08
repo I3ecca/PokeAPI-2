@@ -82,6 +82,19 @@ h1 {
     background-color: rgba(127, 127, 127, 0.4);
   }
 
+  #close{
+    margin-left: 90%;
+    text-shadow: 1px 1px 2px rgb(0 0 0 / 30%);
+    cursor: pointer;
+  }
+
+  #close:hover{
+    margin-left: 90%;
+    text-shadow: 1px 1px 2px rgb(0 0 0 / 50%);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
   
 
   .pokemon-containers  {
@@ -89,12 +102,6 @@ h1 {
     border-radius: 5px;
     margin: 10px;
   }
-  .pokemon-containers:hover {
-    cursor: pointer;
-  
-  }
-
-
 
   .paraNum {
     padding: 0;
@@ -134,7 +141,6 @@ h1 {
     line-height: 1.5rem;
     text-align: center;
     text-transform: uppercase;
-    
     width: 66px;
     font-size: .75rem;
     font-weight: normal;
@@ -218,7 +224,6 @@ h1 {
     bottom: 0;
     left: 0;
     right: 0;
-      /* display: flex; */
     display: none;
     align-items: center;
     justify-content: center;
