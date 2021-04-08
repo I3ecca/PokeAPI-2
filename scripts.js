@@ -133,9 +133,9 @@ $(function() {
 
                     if(pkmnInfo.typeOne === ""){
 
-                    let flavorText = JSON.stringify(description.flavor_text_entries[0].flavor_text);
+                    let flavorText = JSON.stringify(description.flavor_text_entries[2].flavor_text);
 
-                    let flavor_text = (flavorText.replaceAll("\\n"," ").replaceAll("\\f",""));
+                    let flavor_text = (flavorText.replaceAll("\\n"," ").replaceAll("\\f","  "));
 
                     console.log(pkmnInfo.typeOne, pkmnInfo.typeTwo);
 
@@ -162,9 +162,9 @@ $(function() {
 
                     } else {
 
-                    let flavorText = JSON.stringify(description.flavor_text_entries[0].flavor_text);
+                    let flavorText = JSON.stringify(description.flavor_text_entries[2].flavor_text);
 
-                    let flavor_text = (flavorText.replaceAll("\\n"," ").replaceAll("\\f",""));
+                    let flavor_text = (flavorText.replaceAll("\\n"," ").replaceAll("\\f","  "));
 
                     console.log(pkmnInfo.typeOne, pkmnInfo.typeTwo);
 
