@@ -83,14 +83,15 @@ $(function() {
         })
   
         $(".paraName").click(function(event) {
-  
+            
+          $("#typeClick").html("");  
           popup.style.display = "flex";
           // gets the id number of the pkmn clicked. 
           idNum = (event.target.id);
   
           let pkmnInfo = (sortedArray[idNum - 1]);
   
-          $("#typeClick").html("");
+          
   
           $.getJSON(pkmnInfo.flavorUrl).done(function(description) {
   
