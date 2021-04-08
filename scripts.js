@@ -126,20 +126,31 @@ $(function() {
                 
                 let pkmnInfo = (sortedArray[idNum - 1]);
 
+                $("#typeClick").html("");
+
                 $.getJSON(pkmnInfo.flavorUrl).done(function(description){
+
+
+                    if(pkmnInfo.typeOne === ""){
 
                     let flavorText = JSON.stringify(description.flavor_text_entries[0].flavor_text);
 
                     let flavor_text = (flavorText.replaceAll("\\n"," ").replaceAll("\\f",""));
 
+                    console.log(pkmnInfo.typeOne, pkmnInfo.typeTwo);
+
+                
+                    
+                    let typeIIDiv = $("<div>").html(`${pkmnInfo.typeTwo}`).addClass(`typeBlock ${pkmnInfo.typeTwo}`);
                   
 
                     $("#regularS").html("");
                     $("#shinyS").html("");
                     $("#pokemon-details").html("");
                     $("#flavorText").html(flavor_text);
+                    $("#typeClick").append(typeIIDiv);
 
-                    console.log(pkmnInfo);
+                    
 
                     let spriteF = `<img class="pkmSprite" src = ${pkmnInfo.sprite_front}><p>Default Front</p>`;
                     let spriteB = `<img class="pkmSprite" src = ${pkmnInfo.sprite_back}><p>Default Back</p>`;
@@ -148,6 +159,39 @@ $(function() {
 
                     $("#regularS").append(spriteF).append(spriteB);
                     $("#shinyS").append(spriteFS).append(spriteBS);
+
+                    } else {
+
+                    let flavorText = JSON.stringify(description.flavor_text_entries[0].flavor_text);
+
+                    let flavor_text = (flavorText.replaceAll("\\n"," ").replaceAll("\\f",""));
+
+                    console.log(pkmnInfo.typeOne, pkmnInfo.typeTwo);
+
+                    
+                    let typeIDiv = $("<div>").html(`${pkmnInfo.typeOne}`).addClass(`typeBlock ${pkmnInfo.typeOne}`);
+                    let typeIIDiv = $("<div>").html(`${pkmnInfo.typeTwo}`).addClass(`typeBlock ${pkmnInfo.typeTwo}`);
+                  
+
+                    $("#regularS").html("");
+                    $("#shinyS").html("");
+                    $("#pokemon-details").html("");
+                    $("#flavorText").html(flavor_text);
+                    $("#typeClick").append(typeIDiv).append(typeIIDiv);
+
+                    
+
+                    let spriteF = `<img class="pkmSprite" src = ${pkmnInfo.sprite_front}><p>Default Front</p>`;
+                    let spriteB = `<img class="pkmSprite" src = ${pkmnInfo.sprite_back}><p>Default Back</p>`;
+                    let spriteFS = `<img class="pkmSprite" src = ${pkmnInfo.sprite_frontS}><p>Shiny Front</p>`;
+                    let spriteBS = `<img class="pkmSprite" src = ${pkmnInfo.sprite_backS}><p>Shiny Back</p>`;
+
+                    $("#regularS").append(spriteF).append(spriteB);
+                    $("#shinyS").append(spriteFS).append(spriteBS);
+
+                    }
+
+                    
                     
                 });
 
